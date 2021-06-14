@@ -13,4 +13,4 @@ for id in {'VKOL','SVKPL','SVKHK','NKP','MZK','MSVK','MKP','KVKLI','KMHK','KKFB'
 done
 
 wget "https://sfx.knihovny.cz/sfxlcl3/cgi/public/get_file.cgi?file=institutional_holding.xml"
-wget "http://sfx.techlib.cz/sfxlcl41/cgi/public/get_file.cgi?file=institutional_holding-NTK.xml"
+wget "https://sfx.techlib.cz/sfxlcl41/cgi/public/get_file.cgi?file=institutional_holding-NTK.xml"
