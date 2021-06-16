@@ -7,7 +7,7 @@ fi
 
 token=$(bash ini.sh getValue ebsco)
 
-sed 's/<to\/>/<to><\/to>/g' $1 | xml_pp >knihovnycz-googlescholar.xml
+sed 's/<to\/>/<to><\/to>/g' $1 | xml_pp >knihovnycz-googlescholar.xml || exit
 
 curl -T knihovnycz-googlescholar.xml ftp://ftp.epnet.com/full/ --user $token
 
