@@ -3,6 +3,8 @@
 export LC_ALL="cs_CZ.UTF-8"
 export TZ="Europe/Prague"
 
+cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null
+
 rmPath=$(bash ini.sh getValue defaultRmPath)
 
 if [ -z $rmPath ]; then
