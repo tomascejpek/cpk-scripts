@@ -18,3 +18,5 @@ DELETE FROM bl_topic_key where harvested_record_id in (select id from harvested_
 DELETE FROM bl_language where harvested_record_id in (select id from harvested_record where deleted is not null and next_dedup_flag is true and import_conf_id not in (316,400,344));
 DELETE FROM anp_title where harvested_record_id in (select id from harvested_record where deleted is not null and next_dedup_flag is true and import_conf_id not in (316,400,344));
 DELETE FROM uuid where harvested_record_id in (select id from harvested_record where deleted is not null and next_dedup_flag is true and import_conf_id not in (316,400,344));
+
+select import_conf_id,count(*) from harvested_record where deleted is not null and dedup_keys_hash is not null and dedup_keys_hash!='' and import_conf_id not in (316,400,344) group by import_conf_id;
