@@ -1,3 +1,4 @@
+-- table size
 WITH RECURSIVE pg_inherit(inhrelid, inhparent) AS
     (select inhrelid, inhparent
     FROM pg_inherits
@@ -40,3 +41,9 @@ SELECT table_schema
   WHERE oid = parent
 ) a
 ORDER BY total_bytes DESC;
+
+-- db size
+SELECT
+    pg_database.datname,
+    pg_size_pretty(pg_database_size(pg_database.datname)) AS size
+    FROM pg_database;
