@@ -11,3 +11,10 @@ reharvestArl=
 reharvestCdk=
 reharvestKramerius=
 reharvestRandom=
+
+reharvestJobDefault=oaiHarvestJob
+reharvestJobArl=cosmotronHarvestJob
+reharvestJobCdk=krameriusHarvestJob
+reharvestJobKramerius=krameriusHarvestJob
+
+reharvestAsyncCdk=no
