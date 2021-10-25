@@ -36,15 +36,15 @@ cd $rmPath
 
 if [ -n "$sources" ]; then
   echo $sources | grep "[0-9]*" -o | while read -r id; do
-    threadCount=$(ps aux | grep "cz.mzk.recordmanager" | grep "java" | wc -l)
-    while [ $threadCount -ge $threadCountMax ]; do
-      sleep 30
-      threadCount=$(ps aux | grep "cz.mzk.recordmanager" | grep "java" | wc -l)
-    done
-    echo "run $id"
     if [ "$async" == "no" ]; then
       nohup java -Dlogback.configurationFile=logback.xml -DCONFIG_DIR=config/ -jar target/cz.mzk.recordmanager.cmdline-1.0.0-SNAPSHOT.jar -job $job -configurationId $id -reharvest true -repeat 1 >$logPath$id.log
     else
+      threadCount=$(ps aux | grep "cz.mzk.recordmanager" | grep "java" | wc -l)
+      while [ $threadCount -ge $threadCountMax ]; do
+        sleep 30
+        threadCount=$(ps aux | grep "cz.mzk.recordmanager" | grep "java" | wc -l)
+      done
+      echo "run $id"
       nohup java -Dlogback.configurationFile=logback.xml -DCONFIG_DIR=config/ -jar target/cz.mzk.recordmanager.cmdline-1.0.0-SNAPSHOT.jar -job $job -configurationId $id -reharvest true -repeat 1 >$logPath$id.log &
     fi
   done
