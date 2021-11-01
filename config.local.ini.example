@@ -16,5 +16,7 @@ reharvestJobDefault=oaiHarvestJob
 reharvestJobArl=cosmotronHarvestJob
 reharvestJobCdk=krameriusHarvestJob
 reharvestJobKramerius=krameriusHarvestJob
+reharvestJobRkka=oaiHarvestOneByOneJob
 
 reharvestAsyncCdk=no
+reharvestAsyncRkka=no
