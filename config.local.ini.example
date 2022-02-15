@@ -2,6 +2,7 @@ ebsco=
 defaultUpvPath=
 defaultRmPath=
 defaultLogPath=
+defaultDataPath=
 reharvestThreadCount=
 
 reharvestTritius=
