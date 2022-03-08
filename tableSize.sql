@@ -47,3 +47,11 @@ SELECT
     pg_database.datname,
     pg_size_pretty(pg_database_size(pg_database.datname)) AS size
     FROM pg_database;
+
+SELECT
+    relname AS objectname,
+    relkind AS objecttype,
+    reltuples AS "#entries",
+    pg_size_pretty(relpages::bigint*8*1024) AS size
+FROM pg_catalog.pg_class
+ORDER BY relpages DESC;
