@@ -21,3 +21,7 @@ reharvestJobRkka=oaiHarvestOneByOneJob
 
 reharvestAsyncCdk=no
 reharvestAsyncRkka=no
+
+// uuids from kramerius
+kram-mzk=
+kram-nkp=
