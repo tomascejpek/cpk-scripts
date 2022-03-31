@@ -1,6 +1,7 @@
 ebsco=
 defaultUpvPath=
 defaultRmPath=
+defaultHarvesterPath=
 defaultLogPath=
 defaultDataPath=
 reharvestThreadCount=

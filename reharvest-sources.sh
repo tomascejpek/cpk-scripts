@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /logs/cpk-scripts/
+cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null
 
 bash reharvest.sh --source=Arl
 bash reharvest.sh --source=Tritius

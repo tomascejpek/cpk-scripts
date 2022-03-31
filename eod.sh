@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cd /home/tomas/git/oai-harvester/
+cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null
+
+harvesterPath=$(bash ini.sh getValue defaultHarvesterPath)
+cd $harvesterPath
 
 bash harvester.sh --source=P1-UIBK --repeat=true &
 bash harvester.sh --source=P2-UT --repeat=true &
