@@ -32,5 +32,6 @@ for i in $(ls | grep -P "^St36_CZ_[0-9]{4}-[0-9]{1,2}$" | grep -oP "[0-9]{4}" | 
     remove "$folder/St36_CZ_U1_$i-$j.xml"
     mv $folder/* upv-export_cele_databaze
     rm -rf $folder
+    mv "St36_CZ_$i-$j.zip" upv
   done
 done
