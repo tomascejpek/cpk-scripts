@@ -1,14 +1,15 @@
 #!/bin/bash
 
-source="$1"
+source="kram-snk"
+type="$1"
 i=0
 count=5000
 
-if [ -z $source ]; then
-  printf "No source - mzk | nkp \n"
+if [ -z $type ]; then
+  printf "No type - meta | avai \n"
   exit 1
 fi
-source="kram-$1"
+
 
 sourceUrl=$(bash ini.sh getValue $source)
 logPath=$(bash ini.sh getValue defaultLogPath)
@@ -25,10 +26,10 @@ else
   mkdir $dataPath
 fi
 
-if [ "$source" == "kram-nkp" ]; then
-  url="$sourceUrl/search/api/v5.0/search?q=*:*&fq=fedora.model:monograph+OR+fedora.model:periodical+OR+fedora.model:map+OR+fedora.model:archive+OR+fedora.model:manuscript+OR+fedora.model:sheetmusic+OR+fedora.model:soundrecording+OR+fedora.model:graphic+OR+fedora.model:convolute&fl=PID&rows=$count&start="
-elif [ "$source" == "kram-mzk" ]; then
-  url="$sourceUrl/search/api/client/v7.0/search?q=*:*&fq=model:monograph+OR+model:periodical+OR+model:map+OR+model:archive+OR+model:manuscript+OR+model:sheetmusic+OR+model:soundrecording+OR+model:graphic+OR+model:convolute&fl=pid&wt=xml&rows=$count&start="
+if [ "$type" == "meta" ]; then
+  url="$sourceUrl/search/api/client/v7.0/search?&q=model:article%20(licenses:paying_users%20OR%20licenses:public)&fl=pid&wt=xml&rows=$count&start="
+elif [ "$type" == "avai" ]; then
+  url="$sourceUrl/search/api/client/v7.0/search?&fl=accessibility,dnnt,pid,level,licenses&q=model:article%20(licenses:paying_users%20OR%20licenses:public)&fl=pid&wt=xml&rows=$count&start="
 fi
 
 now=$(date)
