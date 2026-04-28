@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function remove() {
-  if [ -f "1" ]; then
+  if [ -f "$1" ]; then
     rm "$1"
   fi
 }
