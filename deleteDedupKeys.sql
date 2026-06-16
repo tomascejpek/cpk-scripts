@@ -22,3 +22,5 @@ DELETE FROM uuid where harvested_record_id in (select id from harvested_record w
 select import_conf_id,count(*) from harvested_record where deleted is not null and dedup_keys_hash is not null and dedup_keys_hash!='' and import_conf_id not in (316,400,344) and palmknihy_id is null group by import_conf_id;
 
 update harvested_record set next_dedup_flag=true where deleted is not null and dedup_keys_hash is not null and dedup_keys_hash!='' and import_conf_id not in (316,400,344,333) and palmknihy_id is null;
+
+update harvested_record set next_dedup_flag=true where id in (select id from harvested_record where deleted is not null and dedup_keys_hash is not null and dedup_keys_hash!='' and import_conf_id=302 and palmknihy_id is null);
